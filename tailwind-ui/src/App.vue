@@ -1,12 +1,10 @@
 <script setup>
-import Disclosure from "./components/Disclosure.vue";
+import Disclosure from './components/Disclosure.vue';
 </script>
 <template>
-  <div>
-    <Disclosure />
-  </div>
+  <router-view />
 </template>
 
 <style>
-@import "./assets/index.css";
+@import './assets/index.css';
 </style>
