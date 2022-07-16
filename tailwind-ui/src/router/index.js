@@ -14,6 +14,11 @@ const routes = [
       },
     ],
   },
+  {
+    name: 'trung-quan',
+    path: '/tq',
+    component: () => import('@/views/TrungQuan.vue'),
+  },
 ];
 
 const router = createRouter({
