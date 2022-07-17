@@ -3,31 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --primary-blue: #00d8ff;
-  --primary-purple: #6a00ff;
-}
-
-.blue {
-  color: var(--primary-blue);
-}
-
-.outline {
-  background-color: transparent !important;
-}
-
-@layer base {
-  * {
-    @apply font-[Kanit];
-  }
-  h1 {
-    @apply text-3xl font-extrabold;
-  }
-  li {
-    @apply px-4;
-  }
-  button {
-    @apply py-3 px-7 rounded-3xl bg-gradient-to-r from-[var(--primary-purple)] to-[var(--primary-blue)];
-  }
-}

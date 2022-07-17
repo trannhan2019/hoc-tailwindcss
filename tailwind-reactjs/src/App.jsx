@@ -1,15 +1,9 @@
-// import Demo1 from './Tailwindcss/Demo1';
-
-import CodeCommerce from './CodeCommerce/Index';
-
-// import Grip from './Tailwindcss/Grip';
-
-// import Animation from './Tailwindcss/Animation';
+import BookShop from './Bookshop/BookShop';
 
 function App() {
   return (
     <div className="App">
-      <CodeCommerce />
+      <BookShop />
     </div>
   );
 }
