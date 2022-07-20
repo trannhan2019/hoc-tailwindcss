@@ -7,9 +7,13 @@ import {
 import MenuMain from './MenuMain';
 import SearchBox from './SearchBox';
 import LogoIcon from '../../assets/images/logo.png';
+import ShopBox from './ShopBox';
+import MenuSide from './MenuSide';
 
 export default function HeaderBar() {
   const [showSearch, setShowSearch] = useState(false);
+  const [showShop, setShowShop] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="w-full h-[85px] bg-bg-color border shadow-lg">
       <div className="container h-full mx-auto px-4 flex justify-between">
@@ -32,12 +36,12 @@ export default function HeaderBar() {
               </li>
 
               <li className="px-3 hover:text-hover-color flex items-center">
-                <button href="#">
+                <button onClick={() => setShowShop(true)}>
                   <ShoppingCartIcon className="w-6 h-6" />
                 </button>
               </li>
               <li className="px-3 hover:text-hover-color flex items-center">
-                <button href="#">
+                <button onClick={() => setShowMenu(true)}>
                   <MenuIcon className="w-6 h-6" />
                 </button>
               </li>
@@ -47,6 +51,10 @@ export default function HeaderBar() {
       </div>
       {/* Search Box */}
       <SearchBox show={showSearch} onClose={setShowSearch} />
+      {/* Shop Box */}
+      <ShopBox show={showShop} onClose={setShowShop} />
+      {/* MenuBox */}
+      <MenuSide show={showMenu} onClose={setShowMenu} />
     </header>
   );
 }

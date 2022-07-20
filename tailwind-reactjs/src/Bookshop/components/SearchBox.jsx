@@ -1,17 +1,20 @@
-import React from "react";
-import clsx from "clsx";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { XIcon } from "@heroicons/react/outline";
-import { listSearchFillter, listSearchAuthors } from "./listSearchFiller";
-import SearchFillterItem from "./SearchFillterItem";
-import SearchAuthorItem from "./SearchAuthorItem";
+import clsx from 'clsx';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
+import { XIcon } from '@heroicons/react/outline';
+import {
+  listSearchFillter,
+  listSearchAuthors,
+} from './listSearchFiller';
+import SearchFillterItem from './SearchFillterItem';
+import SearchAuthorItem from './SearchAuthorItem';
 
 export default function SearchBox({ show, onClose }) {
   return (
     <div
       className={clsx(
-        "flex flex-col p-10 fixed top-0 right-0 bottom-0 w-[400px] bg-bg-color transition-transform duration-300 ease-in-out shadow-xl",
-        show ? "-translate-x-[5%]" : "translate-x-full"
+        'flex flex-col p-10 fixed top-0 right-0 bottom-0 w-[400px] bg-bg-color transition-transform duration-300 ease-in-out shadow-xl',
+        show ? '-translate-x-[3%]' : 'translate-x-full'
       )}
     >
       <div className="flex justify-end">
@@ -58,7 +61,7 @@ export default function SearchBox({ show, onClose }) {
         </form>
       </div>
       <div className="mt-6">
-        <div className="text-2xl">
+        <div className="text-3xl">
           <h4>Filtered Items</h4>
         </div>
         <div className="h-[37vh] overflow-x-hidden overflow-y-auto mt-5 scrollbar">
@@ -73,7 +76,15 @@ export default function SearchBox({ show, onClose }) {
           <h4 className="text-xl font-bold">- Author -</h4>
         </div>
         <div className="mt-4">
-          <Swiper>
+          <Swiper
+            loop={true}
+            slidesPerView={1}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+          >
             {listSearchAuthors.map((item) => (
               <SwiperSlide key={item.name}>
                 <SearchAuthorItem item={item} />
