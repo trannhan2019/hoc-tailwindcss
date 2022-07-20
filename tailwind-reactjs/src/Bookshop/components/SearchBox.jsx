@@ -1,13 +1,17 @@
-import React from 'react';
-import clsx from 'clsx';
-import { XIcon } from '@heroicons/react/outline';
+import React from "react";
+import clsx from "clsx";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { XIcon } from "@heroicons/react/outline";
+import { listSearchFillter, listSearchAuthors } from "./listSearchFiller";
+import SearchFillterItem from "./SearchFillterItem";
+import SearchAuthorItem from "./SearchAuthorItem";
 
 export default function SearchBox({ show, onClose }) {
   return (
     <div
       className={clsx(
-        'flex flex-col p-10 fixed top-0 right-0 bottom-0 w-[400px] bg-bg-color transition-transform duration-300 ease-in-out shadow-xl',
-        show ? '-translate-x-[5%]' : 'translate-x-full'
+        "flex flex-col p-10 fixed top-0 right-0 bottom-0 w-[400px] bg-bg-color transition-transform duration-300 ease-in-out shadow-xl",
+        show ? "-translate-x-[5%]" : "translate-x-full"
       )}
     >
       <div className="flex justify-end">
@@ -43,9 +47,9 @@ export default function SearchBox({ show, onClose }) {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 ></path>
               </svg>
@@ -57,23 +61,27 @@ export default function SearchBox({ show, onClose }) {
         <div className="text-2xl">
           <h4>Filtered Items</h4>
         </div>
-        <div className="h-[37vh] overflow-x-hidden overflow-y-auto">
-          <div>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div>
-              <h5></h5>
-              <p></p>
-              <div>
-                <button></button>
-                <button></button>
-              </div>
-            </div>
-          </div>
+        <div className="h-[37vh] overflow-x-hidden overflow-y-auto mt-5 scrollbar">
+          {listSearchFillter.map((item) => (
+            <SearchFillterItem item={item} key={item.h5} />
+          ))}
         </div>
       </div>
-      <div>author</div>
+      <hr className="my-4" />
+      <div className="mt-4 px-4">
+        <div className="text-center">
+          <h4 className="text-xl font-bold">- Author -</h4>
+        </div>
+        <div className="mt-4">
+          <Swiper>
+            {listSearchAuthors.map((item) => (
+              <SwiperSlide key={item.name}>
+                <SearchAuthorItem item={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 }
